@@ -4,6 +4,7 @@ use serde::{Deserialize, Serialize};
 struct Data {
     name: String,
     value: i32,
+    #[serde(rename="isActive")]
     is_active: bool,
 }
 
@@ -22,7 +23,7 @@ fn test_deserialize() {
 ---
 name: N1
 value: 31
-is_active: true
+isActive: true
 ";
     let data: Data = serde_yaml::from_str(json_str).unwrap();
     println!("{:#?}", data);
